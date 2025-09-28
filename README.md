@@ -1,2 +1,1 @@
-# paradigm
-a php paradigm
+# A PHP Paradigm
