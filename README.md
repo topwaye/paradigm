@@ -5,9 +5,11 @@ mysql> create database b2_20250917;
 Modify config.php as follows:
 ```
 /* Language settings */
+
 define("RES_LANGUAGE", "Default");
 
 /* MySQL settings */
+
 define('DB_NAME', 'b2_20250917');   // The name of the database
 define('DB_USER', 'root');          // Your MySQL username
 define('DB_PASSWORD', '123456');    // ...and password
