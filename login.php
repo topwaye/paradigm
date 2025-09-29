@@ -53,10 +53,11 @@ for ($row_no = 0; $row_no < $result->num_rows; $row_no++)
 
     if ($row["myid"] === $_myid && $row["myname"] === $_myname)
     {
-        if (empty($_COOKIE["myid"]))
-            setcookie("myid", (string) $_myid, time() + 3600);
-        if (empty($_COOKIE["myname"]))
-            setcookie("myname", $_myname, time() + 3600);
+        /* Patch: Do NOT do if(empty($_COOKIE["myid"])) */
+
+        /* expire in 1 hour */
+        setcookie("myid", (string) $_myid, time() + 3600);
+        setcookie("myname", $_myname, time() + 3600);
         /* Redirect browser */
         header("Location: index.php");
 
@@ -69,6 +70,7 @@ $result->close();
 
 echo "id or name not found<br>", PHP_EOL;
 
+/* set the expiration date to one hour ago to delete cookies */
 if (! empty($_COOKIE["myid"]))
     setcookie("myid", "", time() - 3600);
 if (! empty($_COOKIE["myname"]))
