@@ -32,12 +32,13 @@ if ($stmt->errno)
     throw new RuntimeException("mysqli_stmt error: " . $stmt->error);
 $data =
 [
-    1 => "PHP",
-    2 => "Java",
-    3 => "C++"
+    [1, "PHP"],
+    [2, "Java"],
+    [3, "C++"]
 ];
-foreach ($data as $myid => $myname)
+foreach ($data as $row)
 {
+    [$myid, $myname] = $row;
     $stmt->execute();
     if ($stmt->errno)
         throw new RuntimeException("mysqli_stmt error: " . $stmt->error);
