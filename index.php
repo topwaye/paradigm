@@ -7,8 +7,9 @@ $_myname = empty($_COOKIE["myname"]) ? "" : $_COOKIE["myname"];
 
 echo "function_file_index_php(", $_myid, ", ", htmlspecialchars($_myname), ");<br>", PHP_EOL;
 
-if (! $_myid || ! $_myname)
+if (! $_myid || empty($_myname))
 {
+    /* Redirect browser */
     header("Location: login.php");
     exit();
 }

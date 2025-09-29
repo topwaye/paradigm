@@ -7,7 +7,7 @@ $_myname = empty($_POST["myname"]) ? "" : $_POST["myname"];
 
 echo "function_file_login_php(", $_myid, ", ", htmlspecialchars($_myname), ");<br>", PHP_EOL;
 
-if (! $_myid || ! $_myname)
+if (! $_myid || empty($_myname))
 {
     require_once "tlogin.php";
     exit();
@@ -57,7 +57,7 @@ for ($row_no = 0; $row_no < $result->num_rows; $row_no++)
             setcookie("myid", (string) $_myid, time() + 3600);
         if (empty($_COOKIE["myname"]))
             setcookie("myname", $_myname, time() + 3600);
-
+        /* Redirect browser */
         header("Location: index.php");
 
         $result->close();
