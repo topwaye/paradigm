@@ -13,9 +13,10 @@ define("DB_HOST", "localhost");	    /* 99% chance you won't need to change this 
  * If mysqli error reporting is enabled (MYSQLI_REPORT_ERROR) and the requested operation fails, 
  * a warning is generated. If, in addition, the mode is set to MYSQLI_REPORT_STRICT, 
  * a mysqli_sql_exception is thrown instead.
- * mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+ * 
+ * error_reporting(0);
+ * mysqli_report(MYSQLI_REPORT_OFF);
  */
-error_reporting(0);
-mysqli_report(MYSQLI_REPORT_OFF);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 ?>
