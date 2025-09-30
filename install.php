@@ -12,10 +12,7 @@ $data =
     [3, "C++"]
 ];
 
-$myid = 0;
-$myname = "";
-
-insert_into_table($mysqli, $data, $myid, $myname);
+insert_into_table($mysqli, $data, 0, "");
 stop_sql($mysqli);
 
 echo "Database is ready", "<br>", PHP_EOL;
